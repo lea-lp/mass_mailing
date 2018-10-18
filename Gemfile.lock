@@ -8,8 +8,6 @@ GEM
     declarative-option (0.1.0)
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
-    fileutils (1.1.0)
-    google (0.0.2)
     google-api-client (0.21.2)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.5, < 0.7.0)
@@ -61,10 +59,7 @@ PLATFORMS
 DEPENDENCIES
   bundler
   csv
-  fileutils
-  google
   google_drive
-  googleauth
   json
   nokogiri
   rmail
