@@ -24,7 +24,7 @@ done.rb => CLASS Done
 index.rb => CLASS Index
 
 
-### / IMPORTANT \
+## IMPORTANT
 
 - Format du hash_townhalls :
 {
