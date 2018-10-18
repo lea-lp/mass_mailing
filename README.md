@@ -12,18 +12,18 @@
 - relance les mairies sur Twitter en les "followant"
 
 ## Résumé des fichiers
-app.rb => CLASS.new.perform (de toutes les CLASSES)
+app.rb => ```Class.new.perform``` (de toutes les CLASSES)
 
 ### Dossier 'app'
-- **townhalls_scrapper.rb** => CLASS 'TownhallsScrapper' *(scrapper les données de mairies et les stocker dans 'hash_townhalls')* 
-- **townhalls_adder_to_db.rb** => CLASS 'TownhallsAdderToDb' *(stocker et récupérer les données dans un json)*
-- **townhalls_spreadsheet.rb** => CLASS 'TownhallsSpreadsheet' *(stocker et récupérer les données dans un spreadsheet)*
-- **townhalls_mailer.rb** => CLASS 'TownhallsMailer' *(envoyer les emails à partir du spreadsheet)*
-- **townhalls_follower.rb** => CLASS 'TownhallsFollower' *(en entrée : les données du hash_townhalls -fournies par la CLASS 'TownhallsAdderToDb'-, récupèration des handles et les stocker dans un hash)*
+- **townhalls_scrapper.rb** => ```class TownhallsScrapper``` *(scrapper les données de mairies et les stocker dans 'hash_townhalls')* 
+- **townhalls_adder_to_db.rb** => ```class TownhallsAdderToDb``` *(stocker et récupérer les données dans un json)*
+- **townhalls_spreadsheet.rb** => ```class TownhallsSpreadsheet``` *(stocker et récupérer les données dans un spreadsheet)*
+- **townhalls_mailer.rb** => ```class TownhallsMailer``` *(envoyer les emails à partir du spreadsheet)*
+- **townhalls_follower.rb** => ```class TownhallsFollower``` *(en entrée : les données du hash_townhalls -fournies par la ```class TownhallsAdderToDb```-, récupèration des handles et les stocker dans un hash)*
 
 ### Dossier 'views'
-done.rb => CLASS Done
-index.rb => CLASS Index
+done.rb => ```class Done```
+index.rb => ```class Index```
 
 
 ## IMPORTANT
@@ -44,7 +44,7 @@ colone D : townhall_handletwitter
 
 
 
-### Appels des fichiers rb à l'aide de 
-- $:.unshift File.expand_path("./../FOLDER_NAME", __FILE__)
-- require 
+### Appels des fichiers rb
+```$:.unshift File.expand_path("./../FOLDER_NAME", __FILE__)```
+```require```
 
