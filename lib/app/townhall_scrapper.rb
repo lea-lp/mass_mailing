@@ -57,13 +57,15 @@ class TownhallScrapper
       # creation du hash
       my_hash = Hash[tabname.zip(tabmail)]
 
-      @hash_ardeche = Hash.new
+      hash_ardeche = Hash.new
       tab_mails = []
       my_hash.each do |key, value|
         index_fin = (key =~ / - /)
         name = key[0...index_fin]
-        @hash_ardeche[name] = [07, value]
+        hash_ardeche[name] = [07, value]
       end
+
+      return hash_ardeche
 
     end
 
@@ -119,13 +121,15 @@ class TownhallScrapper
     # creation du hash
     my_hash = Hash[tabname.zip(tabmail)]
 
-    @hash_drome = Hash.new
+    hash_drome = Hash.new
     tab_mails = []
     my_hash.each do |key, value|
       index_fin = (key =~ / - /)
       name = key[0...index_fin]
-      @hash_drome[name] = [26, value]
+      hash_drome[name] = [26, value]
     end
+
+    return hash_drome
 
   end
 
@@ -183,13 +187,15 @@ class TownhallScrapper
       # creation du hash
       my_hash = Hash[tabname.zip(tabmail)]
 
-      @hash_lot = Hash.new
+      hash_lot = Hash.new
       tab_mails = []
       my_hash.each do |key, value|
         index_fin = (key =~ / - /)
         name = key[0...index_fin]
-        @hash_lot[name] = [46, value]
+        hash_lot[name] = [46, value]
       end
+
+      return hash_lot
 
     end
 
