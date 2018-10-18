@@ -2,6 +2,8 @@
 
 > Programming w/ @Debzow, @SAMTHP, @Javi & @LeaLp
 
+**Après téléchargement du repo, lancer** ```bundle install```
+
 
 ## Résumé du projet
 - scrapper tous les emails de mairies de 3 départements, enregistrer le tout dans un json. 
