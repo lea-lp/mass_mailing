@@ -1,1 +1,3 @@
 .env
+lib/app/credentials.json
+lib/app/token.yaml

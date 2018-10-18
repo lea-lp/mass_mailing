@@ -11,3 +11,5 @@ gem 'nokogiri'
 gem 'json'
 
 gem 'csv'
+
+gem 'rmail'
