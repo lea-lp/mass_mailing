@@ -29,11 +29,7 @@ index.rb => ```class Index```
 ## IMPORTANT
 
 - Format du hash_townhalls :
-{
-...
-townhall_name => [townhall_department, townhall_email, townhall_handle]
-...
-}
+```{ ... townhall_name => [townhall_department, townhall_email, townhall_handle] ... }```
 - Format du json :
 identique au hash_townalls
 - Format du spreadsheet :
