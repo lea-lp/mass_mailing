@@ -21,7 +21,7 @@ class TownhallsMailer
 		@service.client_options.application_name = @APPLICATION_NAME
 		@service.authorization = authorize
 
-		@email_body = 
+		@email_body =
 
 
 		@first_name = "THP_master"
@@ -30,7 +30,6 @@ class TownhallsMailer
 
 	def authorize
 		client_id = Google::Auth::ClientId.from_file(@CREDENTIALS_PATH)
-		p client_id
 		token_store = Google::Auth::Stores::FileTokenStore.new(file: @TOKEN_PATH)
 		authorizer = Google::Auth::UserAuthorizer.new(client_id, @SCOPE, token_store)
 		user_id = 'default'
@@ -58,19 +57,18 @@ class TownhallsMailer
 				first_name = "THP_master"
 				townhall_name = townhall_name
 
-				p townhall_name
-				p townhall_detail[1]
-	
+				p "Envoi d'emails à : #{townhall_detail[1]}"
+
 				message.body = "Bonjour,\nJe m'appelle #{first_name}, je suis élève à The Hacking Project, une formation au code gratuite, sans locaux, sans sélection, sans restriction géographique. La pédagogie de ntore école est celle du peer-learning, où nous travaillons par petits groupes sur des projets concrets qui font apprendre le code. Le projet du jour est d'envoyer (avec du codage) des emails aux mairies pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.\nDéjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de #{townhall_name} veut changer le monde avec nous ?"
-	
-				#@service.send_user_message("me", upload_source: StringIO.new(message.to_s),	content_type: 'message/rfc822')
+
+				@service.send_user_message("me", upload_source: StringIO.new(message.to_s),	content_type: 'message/rfc822')
 			end
 		end
 
 	end
-	
+
 	def perform(hash_townhalls)
 		send_email_to_all_townhalls(hash_townhalls)
-	end 
-    
+	end
+
 end

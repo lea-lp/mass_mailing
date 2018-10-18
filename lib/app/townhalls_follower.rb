@@ -10,8 +10,6 @@ Dotenv.load
 class TownhallsFollower
 	attr_accessor :client, :names
 
-	TESTING = ["@o0SamArts0o"]
-
 	# Définition de la méthode set_keys, pour la synchronisation avec l'API
 
 	def initialize(townhalls) # Initialisation du serveur
@@ -44,14 +42,11 @@ class TownhallsFollower
       return array_handle
 	end
 
-	def follow(array) # Méthode qui follow directement sur les handles concernés
+	def follow # Méthode qui follow directement sur les handles concernés
 
-		array.each do |handle|
+		@names.each do |handle|
 			@client.follow(handle)
 		end
 	end
 
-	def perform # Mise en relation des méthodes follow et find_handle
-		follow(find_handle)
-	end
 end
