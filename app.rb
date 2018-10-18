@@ -11,6 +11,7 @@ $:.unshift File.expand_path("./../lib", __FILE__)
 require 'app/townhall_scrapper'
 require 'app/townhall_spreadsheet'
 require 'app/townhalls_mailer'
+require 'app/townhalls_follower'
 
 
 #You're using bundler for your gem dependecies and you're doing it right
@@ -30,26 +31,20 @@ end
 =end
 
 #townhall_spreadsheet
+
 townhall_scrapper_json = File.read("db/townhall_scrapper.JSON")
 townhalls = JSON.parse(townhall_scrapper_json)
 
+=begin
 spreadsheet = DumpSpreadsheet.new
 spreadsheet.send_to_drive(townhalls)
-
-
-=begin
-#townhall_spreadsheet
-hash_townhalls_example = Hash.new
-
-hash_townhalls_lot = Hash.new
-hash_townhalls_ardeche = Hash.new
-
-
-hash_townhalls_lot["Paris"] = ["75","david.gerard.42@gmail.com"] 
-hash_townhalls_ardeche["Montpellier"] = ["34","david.gerard.42@gmail.com"]
-
-hash_townhalls_example["lot"] = hash_townhalls_lot
-hash_townhalls_example["ardeche"] = hash_townhalls_ardeche
-
-TownhallsMailer.new.perform(hash_townhalls_example)
 =end
+
+#townhalls_follower
+#handles = TownhallsFollower.new(townhalls).find_handle
+#p handles
+
+
+
+#townhall_spreadsheet
+#TownhallsMailer.new.perform(townhalls)

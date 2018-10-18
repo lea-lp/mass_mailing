@@ -13,3 +13,7 @@ gem 'json'
 gem 'csv'
 
 gem 'rmail'
+
+gem 'dotenv'
+
+gem 'twitter'

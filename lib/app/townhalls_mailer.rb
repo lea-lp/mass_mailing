@@ -57,6 +57,9 @@ class TownhallsMailer
 				message.header['Subject'] = "Changer le monde !"
 				first_name = "THP_master"
 				townhall_name = townhall_name
+
+				p townhall_name
+				p townhall_detail[1]
 	
 				message.body = "Bonjour,\nJe m'appelle #{first_name}, je suis élève à The Hacking Project, une formation au code gratuite, sans locaux, sans sélection, sans restriction géographique. La pédagogie de ntore école est celle du peer-learning, où nous travaillons par petits groupes sur des projets concrets qui font apprendre le code. Le projet du jour est d'envoyer (avec du codage) des emails aux mairies pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.\nDéjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de #{townhall_name} veut changer le monde avec nous ?"
 	
