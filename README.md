@@ -46,5 +46,6 @@ colone D : townhall_handletwitter
 
 ### Appels des fichiers rb
 ```$:.unshift File.expand_path("./../FOLDER_NAME", __FILE__)```
+
 ```require```
 
