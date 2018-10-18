@@ -6,9 +6,6 @@ require 'twitter'
 
 Dotenv.load
 
-p "#"*20
-p ENV["client_api_key"]
-
 
 class TownhallsFollower
 	attr_accessor :client, :names

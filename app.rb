@@ -12,38 +12,29 @@ require 'app/townhall_scrapper'
 require 'app/townhall_spreadsheet'
 require 'app/townhalls_mailer'
 require 'app/townhalls_follower'
+require 'app/townhalls_add_to_db'
 
 
-#You're using bundler for your gem dependecies and you're doing it right
-#but OpenUri is part of the Ruby standard library.
-#That's why you only need to require it if you want to use it in your code.
-
-# myObj = Emails.new.perform;
-# myJSON = JSON.stringify(myObj);
-# localStorage.setItem("/db/emails.JSON", myJSON);
 
 
-=begin
-#townhall_scrapper
-File.open("db/townhall_scrapper.JSON","w") do |f|
-  f.write((TownhallScrapper.new.perform_all).to_json)
-end
-=end
 
-#townhall_spreadsheet
+# hash = TownhallScrapper.new.perform_all
 
-townhall_scrapper_json = File.read("db/townhall_scrapper.JSON")
-townhalls = JSON.parse(townhall_scrapper_json)
+manager_db = AddToDb.new
+
+townhalls = manager_db.read("db/townhall_scrapper.JSON")
+
+handles = TownhallsFollower.new(townhalls).find_handle
+
+manager_db.write_handles("db/townhall_scrapper.JSON", "db/townhall_handles.JSON", handles)
+
+
+
 
 =begin
 spreadsheet = DumpSpreadsheet.new
 spreadsheet.send_to_drive(townhalls)
 =end
-
-#townhalls_follower
-#handles = TownhallsFollower.new(townhalls).find_handle
-#p handles
-
 
 
 #townhall_spreadsheet
