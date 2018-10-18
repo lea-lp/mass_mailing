@@ -6,10 +6,10 @@
 
 
 ## Résumé du projet
-- scrapper tous les emails de mairies de 3 départements, enregistrer le tout dans un json. 
-- enregistrer les données du json dans dans un spreadsheet
+- scrapper tous les emails de mairies de 3 départements, enregistrer le tout dans un JSON 
+- enregistrer les données du JSON dans dans un spreadsheet
 - envoyer un email à toutes les mairies et en CCi à THP en se basant sur le spreadsheet
-- relance les mairies sur Twitter en les "followant"
+- relance des mairies sur Twitter en les "followant"
 
 ## Résumé des fichiers
 app.rb => ```Class.new.perform``` (de toutes les CLASSES)
@@ -40,7 +40,7 @@ colone D : townhall_handletwitter
 
 
 
-### Appels des fichiers rb
+### Appel des fichiers rb
 ```$:.unshift File.expand_path("./../FOLDER_NAME", __FILE__)```
 
 ```require```
