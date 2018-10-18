@@ -1,10 +1,24 @@
 require 'bundler'
 Bundler.require
+$:.unshift File.expand_path("./../lib", __FILE__)
+require 'app/townhall_scrapper'
+require 'nokogiri'
+require 'open-uri'
+require 'json'
 
-$:.unshift File.expand_path("./../lib/app", __FILE__)
-$:.unshift File.expand_path("./../lib/views", __FILE__)
+#You're using bundler for your gem dependecies and you're doing it right
+#but OpenUri is part of the Ruby standard library.
+#That's why you only need to require it if you want to use it in your code.
 
-require "townhalls_mailer"
+# myObj = Emails.new.perform;
+# myJSON = JSON.stringify(myObj);
+# localStorage.setItem("/db/emails.JSON", myJSON);
+
+File.open("db/townhall_scrapper.JSON","w") do |f|
+  f.write((TownhallScrapper.new.perform_all).to_json)
+end
+
+require "townhalls_mailer/app"
 
 
 
@@ -21,4 +35,3 @@ hash_townhalls_example["lot"] = hash_townhalls_lot
 hash_townhalls_example["ardeche"] = hash_townhalls_ardeche
 
 TownhallsMailer.new.perform(hash_townhalls_example)
-
