@@ -5,6 +5,10 @@
 **Après téléchargement du repo, lancer** ```bundle install```
 
 
+ - les fichiers contenant id et mots de passe sont absents pour des raisons de sécurité
+ - le dossier ```views``` n'est pas complété
+
+
 ## Résumé du projet
 - scrapper tous les emails de mairies de 3 départements, enregistrer le tout dans un JSON 
 - enregistrer les données du JSON dans dans un spreadsheet
@@ -21,10 +25,6 @@ app.rb => ```Class.new.perform``` (de toutes les CLASSES)
 - **townhalls_mailer.rb** => ```class TownhallsMailer``` *(envoyer les emails à partir du spreadsheet)*
 - **townhalls_follower.rb** => ```class TownhallsFollower``` *(en entrée : les données du hash_townhalls -fournies par la ```class TownhallsAdderToDb```-, récupèration des handles et les stocker dans un hash)*
 
-### Dossier 'views'
-done.rb => ```class Done```
-index.rb => ```class Index```
-
 
 ## IMPORTANT
 
@@ -37,7 +37,6 @@ colone A : townhall_name
 colone B : townhall_department
 colone C : townhall_email
 colone D : townhall_handletwitter
-
 
 
 ### Appel des fichiers rb
