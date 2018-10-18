@@ -23,4 +23,4 @@ app.rb => ```Class.new.perform``` (de toutes les CLASSES)
 - **townhalls_adder_to_db.rb** => ```class TownhallsAdderToDb``` *(stocker et récupérer les données dans un json)*
 - **townhalls_spreadsheet.rb** => ```class TownhallsSpreadsheet``` *(stocker et récupérer les données dans un spreadsheet)*
 - **townhalls_mailer.rb** => ```class TownhallsMailer``` *(envoyer les emails à partir du spreadsheet)*
-- **townhalls_follower.rb** => ```class TownhallsFollower``` *(en entrée : les données du hash_townhalls -fournies par la ```class TownhallsAdderToDb```-, récupèration des handles et les stocker dans un hash)*
+- **townhalls_follower.rb** => ```class TownhallsFollower``` *(en entrée : les données du hash_townhalls -fournies par la ```class TownhallsAdderToDb```-, récuperation des handles et les stocker dans un hash)*
