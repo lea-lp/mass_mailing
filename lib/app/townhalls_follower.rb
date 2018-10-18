@@ -1,6 +1,3 @@
-# require 'rubygems'
-# require 'oauth'
-# require 'json'
 require 'nokogiri'
 require 'open-uri'
 require 'dotenv'
@@ -11,13 +8,13 @@ Dotenv.load
 
 
 class TownhallsFollower
-	#Création d'une variable constante qui récupèrera les handle
-	# HANDLE = hash_townhalls[KEY][2]
+	attr_accessor :client, :names
 
 	TESTING = ["@o0SamArts0o"]
-	#Définition de la méthode set_keys, pour la synchronisation avec l'API
-	attr_accessor :client, :client2
-	def initialize
+
+	# Définition de la méthode set_keys, pour la synchronisation avec l'API
+
+	def initialize # Initialisation du serveur
 
 		@client = Twitter::REST::Client.new do |config|
   			config.consumer_key        = ENV["client_api_key"]
@@ -25,36 +22,37 @@ class TownhallsFollower
   			config.access_token        = ENV["acces_token"]
   			config.access_token_secret = ENV["access_token_secret"]
   		end
-  		@client2 = Twitter::Streaming::Client.new do |config|
-  			config.consumer_key        = ENV["client_api_key"]
-  			config.consumer_secret     = ENV["client_api_secret"]
-  			config.access_token        = ENV["acces_token"]
-  			config.access_token_secret = ENV["access_token_secret"]
-  		end
-  		# p client
+  		@names = {"@o0SamArts0o" => ['mail','handle']}
 	end
 
-	def find_handle
-		topics = ["montpellier"]
-		@client2.filter(track: topics.join(",")) do |object|
- 		puts object.text if object.is_a?(Twitter::Tweet)
-end
+	def find_handle # Méthode qui va chercher les handles
+	  names = Hash.new
+	  names = {"montpellier" => ['mail','handle']}
+      array = []
+	  names.each do |key, value|
+		 @twitter = @client.user_search(key)
+   		 if @twitter
+      		if twitter_user = @twitter.first
+       			 array << twitter_user[:screen_name]
+       			 puts array.inspect
+      		end
+		end
+	   end
 	end
 
-	# def send_twitt(hashs)
+	def follow # Méthode qui follow directement sur les onglets concernés
 
-	# 	i = 0
-	# 	hashs.each do |townhall_name, townhall_array|
-	# 		i += 1
-	# 		handle = townhall_array[2]
-	# 		@client.update("#{handle} THP est une formation enrichissante !!")
-	# 		if i == 3
-	# 			break
-	# 		end
-	# 	end
-	# end
+		i = 0
+		@names.each do |townhall_name, townhall_array|
+			i += 1
+			@client.update("#{townhall_name} THP est une bonne formation enrichissante !!")
+			if i == 3
+				break
+			end
+		end
+	end
 
 end
 
 testing = TownhallsFollower.new
-testing.find_handle
+testing.follow
